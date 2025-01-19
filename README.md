@@ -15,7 +15,7 @@ SELECT COUNT(*) AS total_registros FROM INSCRITOS;
 (1 fila)
 ```
 
-
+![Resultado de la consulta](capturas/1.png)
 
 ### 2. ¿Cuántos inscritos hay en total?
 
@@ -30,6 +30,7 @@ SELECT SUM(cantidad) AS total_inscritos FROM INSCRITOS;
 (1 fila)
 ```
 
+![Resultado de la consulta](capturas/2.png)
 
 ### 3. ¿Cuál o cuáles son los registros de mayor antigüedad?
 
@@ -45,6 +46,7 @@ SELECT * FROM INSCRITOS WHERE fecha = (SELECT MIN(fecha) FROM INSCRITOS);
 (2 filas)
 ```
 
+![Resultado de la consulta](capturas/3.png)
 
 ### 4. ¿Cuántos inscritos hay por día?
 
@@ -66,6 +68,7 @@ SELECT fecha, SUM(cantidad) AS inscritos_por_dia FROM INSCRITOS GROUP BY fecha O
 (8 filas)
 ```
 
+![Resultado de la consulta](capturas/4.png)
 
 ### 5. ¿Cuántos inscritos hay por fuente?
 
@@ -82,6 +85,7 @@ SELECT fuente, SUM(cantidad) AS inscritos_por_fuente FROM INSCRITOS GROUP BY fue
 
 ```
 
+![Resultado de la consulta](capturas/5.png)
 
 ### 6. ¿Qué día se inscribió la mayor cantidad de personas? ¿Cuántas personas se inscribieron en ese día?
 
@@ -96,6 +100,7 @@ SELECT fecha, SUM(cantidad) AS total_inscritos FROM INSCRITOS GROUP BY fecha ORD
 (1 fila)
 ```
 
+![Resultado de la consulta](capturas/6.png)
 
 ### 7. ¿Qué día se inscribieron la mayor cantidad de personas utilizando el blog? ¿Cuántas personas fueron?
 
@@ -111,6 +116,7 @@ SELECT fecha, cantidad AS inscritos_blog FROM INSCRITOS WHERE fuente = 'Blog' OR
 
 ```
 
+![Resultado de la consulta](capturas/7.png)
 
 ### 8. ¿Cuál es el promedio de personas inscritas por día?
 
@@ -133,6 +139,7 @@ SELECT fecha, ROUND(AVG(cantidad)::NUMERIC, 5) AS promedio_diario FROM INSCRITOS
 
 ```
 
+![Resultado de la consulta](capturas/8.png)
 
 ### 9. ¿Qué días se inscribieron más de 50 personas?
 
@@ -153,6 +160,7 @@ SELECT fecha, SUM(cantidad) AS total_inscritos FROM INSCRITOS GROUP BY fecha HAV
 (7 filas)
 ```
 
+![Resultado de la consulta](capturas/9.png)
 
 ### 10. ¿Cuál es el promedio por día de personas inscritas considerando desde el tercer día?
 
@@ -171,3 +179,5 @@ SELECT fecha, ROUND(AVG(cantidad)::NUMERIC, 5) AS promedio_diario FROM INSCRITOS
 +------------+-----------------+
 (6 filas)
 ```
+
+![Resultado de la consulta](capturas/10.png)
